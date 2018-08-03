@@ -3,6 +3,8 @@
 
 写在最前面【基于https://github.com/onlylemi/MapView】 修改
 
+[![](https://jitpack.io/v/AndyJaa/AndyMapView.svg)](https://jitpack.io/#AndyJaa/AndyMapView)
+
 USE
 ```
 Step 1. Add the JitPack repository to your build file:
