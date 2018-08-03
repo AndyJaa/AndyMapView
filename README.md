@@ -1,6 +1,7 @@
 # AndyMapView
 根据接口（或者其他途径）提供的坐标点，在图片上加标注，并且实现点击事件，弹出提示信息。
-写在最前面【基于https://github.com/onlylemi/MapView】稍作修改
+
+写在最前面【基于https://github.com/onlylemi/MapView】 修改
 
 USE
 ```
