@@ -3,7 +3,6 @@
 
 USE
 ---------------------------
-
 Step 1. Add the JitPack repository to your build file:
 allprojects {
 		repositories {
@@ -16,7 +15,6 @@ Step 2. Add the dependency:
 dependencies {
 	        compile 'com.github.AndyJaa:AndyMapView:v1.0.0'
 	}
-	
 ---------------------------------
 
 DEMO
@@ -62,4 +60,4 @@ DEMO
 
 SCREENSHOT
 ------------------
-![image](https://github.com/AndyJaa/AndyMapView/blob/master/demo.png)
+<img src="https://github.com/AndyJaa/AndyMapView/blob/master/demo.png" width="550" height="300"/>
