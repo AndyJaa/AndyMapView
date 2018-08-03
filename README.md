@@ -3,20 +3,21 @@
 
 USE
 ---------------------------
-Step 1. Add the JitPack repository to your build file:
 
+Step 1. Add the JitPack repository to your build file:
 allprojects {
 		repositories {
 			...
 			maven { url 'https://jitpack.io' }
+			maven { url 'https://maven.google.com' }
 		}
 	}
-        
 Step 2. Add the dependency:
-
 dependencies {
 	        compile 'com.github.AndyJaa:AndyMapView:v1.0.0'
 	}
+	
+---------------------------------
 
 DEMO
 ---------------------------
