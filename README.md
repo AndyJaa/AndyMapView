@@ -26,7 +26,7 @@ protected void onCreate(Bundle savedInstanceState) {
                 list.add(data2);
                 list.add(data3);
                 markLayer = new MarkLayer(mapView, list);
-                //根据自己需求设置 详细信息内容、标题的字体颜色，以及字体大小。
+                根据自己需求设置 详细信息内容、标题的字体颜色，以及字体大小。
                 markLayer.setDetailColor(Color.GREEN);
                 markLayer.setTitleColor("#aabbccdd");
                 markLayer.setMarkIsClickListener(new MarkLayer.MarkIsClickListener() {
