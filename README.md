@@ -3,6 +3,23 @@
 
 USE
 ---------------------------
+Step 1. Add the JitPack repository to your build file:
+
+allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+        
+Step 2. Add the dependency:
+
+dependencies {
+	        compile 'com.github.AndyJaa:AndyMapView:v1.0.0'
+	}
+
+DEMO
+---------------------------
 
         setContentView(R.layout.activity_main);
         mapView = (MapView) findViewById(R.id.mapView);
