@@ -8,9 +8,10 @@ DESCRIPTION：
 -----------------
 
 根据接口（或者其他途径）提供的坐标点，在图片上加标注，并且实现点击事件，弹出提示信息。
-
+-----------------------
 
 USE
+----------------
 ```
 Step 1. Add the JitPack repository to your build file:
 allprojects {
@@ -27,6 +28,7 @@ dependencies {
 ```
 
 DEMO
+-------------------------
 ```
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
