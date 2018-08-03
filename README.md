@@ -1,9 +1,11 @@
 # AndyMapView
-根据接口（或者其他途径）提供的坐标点，在图片上加标注，并且实现点击事件，弹出提示信息。
 
 <h3>写在最前面:基于【https://github.com/onlylemi/MapView 】</h3>
 
 [![](https://jitpack.io/v/AndyJaa/AndyMapView.svg)](https://jitpack.io/#AndyJaa/AndyMapView)
+
+DESCRIPTION：
+根据接口（或者其他途径）提供的坐标点，在图片上加标注，并且实现点击事件，弹出提示信息。
 
 USE
 ```
