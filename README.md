@@ -1,8 +1,9 @@
 # AndyMapView
 根据接口（或者其他途径）提供的坐标点，在图片上加标注，并且实现点击事件，弹出提示信息。
+写在最前面【基于https://github.com/onlylemi/MapView】稍作修改
 
 USE
----------------------------
+```
 Step 1. Add the JitPack repository to your build file:
 allprojects {
 		repositories {
@@ -15,11 +16,12 @@ Step 2. Add the dependency:
 dependencies {
 	        compile 'com.github.AndyJaa:AndyMapView:v1.0.0'
 	}
----------------------------------
+```
 
 DEMO
----------------------------
-
+```
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mapView = (MapView) findViewById(R.id.mapView);
         Bitmap bitmap = null;
@@ -57,6 +59,9 @@ DEMO
             }
 
         });
+    }
+	
+```
 
 SCREENSHOT
 ------------------
