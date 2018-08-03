@@ -60,4 +60,4 @@ DEMO
 
 SCREENSHOT
 ------------------
-<img src="https://github.com/AndyJaa/AndyMapView/blob/master/demo.png" width="550" height="300"/>
+<img src="https://github.com/AndyJaa/AndyMapView/blob/master/demo.png" width="350" height="550"/>
