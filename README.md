@@ -42,6 +42,6 @@ USE
 
         });
 
-IMAGE
+SCREENSHOT
 ------------------
 ![image](https://github.com/AndyJaa/AndyMapView/blob/master/demo.png)
