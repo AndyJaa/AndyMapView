@@ -115,11 +115,11 @@ public class MarkLayer extends MapBaseLayer {
                                 radiusMark / 2, paint);
                     }
                     //mark ico
-                    paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.LIGHTEN));
+//                    paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.LIGHTEN));
                     canvas.drawBitmap(bmpMark, goal[0] - bmpMark.getWidth() / 2,
-                            goal[1] - bmpMark.getHeight() / 2, paint);
+                            goal[1] - bmpMark.getHeight() , paint);
                     if (i == num && isClickMark) {
-                        paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_OVER));
+//                        paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_OVER));
                         final Bitmap tmpBitmap = drawTextToBitmap(
                                 bmpMarkTouch, markName, markContent);
                         if (tmpBitmap != null) {
