@@ -23,7 +23,8 @@ allprojects {
 	}
 Step 2. Add the dependency:
 dependencies {
-	        compile 'com.github.AndyJaa:AndyMapView:v1.0.0'
+	       // compile 'com.github.AndyJaa:AndyMapView:v1.0.0'
+	       compile 'com.github.AndyJaa:AndyMapView:v1.0.0'
 	}
 ```
 
