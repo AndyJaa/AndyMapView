@@ -1,5 +1,6 @@
 package jaa.andy.com.demo;
 
+import android.app.AlertDialog;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -9,11 +10,13 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Toast;
 
 import com.andy.jaa.MapView;
 import com.andy.jaa.MapViewListener;
 import com.andy.jaa.PointData;
 import com.andy.jaa.layer.MarkLayer;
+import com.andy.jaa.utils.DialogUtils;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -66,21 +69,22 @@ public class MainActivity extends AppCompatActivity implements AndyView.OnClickA
         mapView.setMapViewListener(new MapViewListener() {
             @Override
             public void onMapLoadSuccess() {
-                PointData data1 = new PointData(new PointF(452, 325),"Shop1","这是店铺1的详细信息");
+                PointData data1 = new PointData(new PointF(452, 325),"Shop1","这是是店铺1的详细信息");
                 PointData data2 = new PointData(new PointF(452,94),"Shop2","这是店铺2的详细信息");
                 PointData data3 = new PointData(new PointF(723,97),"Shop3","这是店铺3的详细信息");
-                List<PointData> list = new ArrayList<PointData>();
+                final List<PointData> list = new ArrayList<PointData>();
                 list.add(data1);
                 list.add(data2);
                 list.add(data3);
-                markLayer = new MarkLayer(mapView, list);
+                //默认样式
+//                markLayer = new MarkLayer(MainActivity.this,mapView, list,true);
+                //dialog样式弹出
+                markLayer = new MarkLayer(MainActivity.this,mapView, list,false);
 //                markLayer.setDetailColor(Color.GREEN);
 //                markLayer.setTitleColor("#aabbccdd");
                 markLayer.setMarkIsClickListener(new MarkLayer.MarkIsClickListener() {
                     @Override
                     public void markIsClick(int num) {
-//                        Toast.makeText(getApplicationContext(), marksName.get(num) + " is " +
-//                                "selected", Toast.LENGTH_SHORT).show();
                     }
                 });
                 mapView.addLayer(markLayer);

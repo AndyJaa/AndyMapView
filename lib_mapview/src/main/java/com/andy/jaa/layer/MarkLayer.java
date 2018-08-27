@@ -1,5 +1,10 @@
 package com.andy.jaa.layer;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -15,12 +20,19 @@ import android.support.annotation.NonNull;
 import android.text.Layout;
 import android.text.StaticLayout;
 import android.text.TextPaint;
+import android.text.method.ScrollingMovementMethod;
+import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.MotionEvent;
+import android.view.View;
+import android.view.WindowManager;
+import android.widget.TextView;
 
 import com.andy.jaa.MapView;
 import com.andy.jaa.PointData;
 import com.andy.jaa.R;
+import com.andy.jaa.utils.DialogUtils;
 import com.andy.jaa.utils.MapMath;
 
 import java.util.List;
@@ -46,11 +58,15 @@ public class MarkLayer extends MapBaseLayer {
     private int num = -1;
 
     private Paint paint;
+    private Context mContext;
+    private boolean isDefault = true;
 
 
-    public MarkLayer(MapView mapView, List<PointData> pointDatas) {
+    public MarkLayer(Context context, MapView mapView, List<PointData> pointDatas, boolean isDefault) {
         super(mapView);
         this.pointDatas = pointDatas;
+        this.mContext = context;
+        this.isDefault = isDefault;
         initLayer();
     }
 
@@ -117,14 +133,59 @@ public class MarkLayer extends MapBaseLayer {
                     //mark ico
 //                    paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.LIGHTEN));
                     canvas.drawBitmap(bmpMark, goal[0] - bmpMark.getWidth() / 2,
-                            goal[1] - bmpMark.getHeight() , paint);
+                            goal[1] - bmpMark.getHeight(), paint);
                     if (i == num && isClickMark) {
+                        if (isDefault) {
 //                        paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_OVER));
-                        final Bitmap tmpBitmap = drawTextToBitmap(
-                                bmpMarkTouch, markName, markContent);
-                        if (tmpBitmap != null) {
-                            canvas.drawBitmap(tmpBitmap, goal[0] - tmpBitmap.getWidth() / 2,
-                                    goal[1] - tmpBitmap.getHeight(), paint);
+                            final Bitmap tmpBitmap = drawTextToBitmap(
+                                    bmpMarkTouch, markName, markContent);
+                            if (tmpBitmap != null) {
+                                canvas.drawBitmap(tmpBitmap, goal[0] - tmpBitmap.getWidth() / 2,
+                                        goal[1] - tmpBitmap.getHeight(), paint);
+                            }
+                        } else {
+//                            final View view = LayoutInflater.from(mContext).inflate(R.layout.layout_bottom_dialog,null);
+//                            final Dialog dialog = new AlertDialog.Builder(mContext)
+//                                    .setView(view)
+//                                    .setCancelable(false)
+//                                    .create();
+//                            WindowManager.LayoutParams params = dialog.getWindow().getAttributes();//获取dialog信息
+////                            params.width = screenWidth - 20;
+//                            params.height = creenHeight / 3 ;
+//                            dialog.getWindow().setAttributes(params);//设置大小
+//
+//                            ((TextView) view.findViewById(R.id.tv_showTitle)).setText(markName);
+//                            TextView tv_content = ((TextView) view.findViewById(R.id.tv_showContent));
+////                            tv_content.setMovementMethod(ScrollingMovementMethod.getInstance());
+//                            tv_content.setText(markContent);
+//                            view.findViewById(R.id.btn_cancel).setOnClickListener(new View.OnClickListener() {
+//                                @Override
+//                                public void onClick(View view) {
+//                                    if (dialog != null && dialog.isShowing()) {
+//                                        dialog.dismiss();
+//                                        isClickMark = false;
+//                                    }
+//                                }
+//                            });
+//                            if (dialog!=null)dialog.show();
+
+                            final Dialog dialog = new DialogUtils(mContext).getDialog();
+                            if (dialog != null) {
+                                dialog.show();
+                                ((TextView) dialog.findViewById(R.id.tv_showTitle)).setText(markName);
+                                TextView tv_content = ((TextView) dialog.findViewById(R.id.tv_showContent));
+                                tv_content.setMovementMethod(ScrollingMovementMethod.getInstance());
+                                tv_content.setText(markContent);
+                                dialog.findViewById(R.id.btn_cancel).setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+                                        if (dialog != null && dialog.isShowing()) {
+                                            dialog.dismiss();
+                                            isClickMark = false;
+                                        }
+                                    }
+                                });
+                            }
                         }
                     }
                 }
@@ -144,13 +205,15 @@ public class MarkLayer extends MapBaseLayer {
     public void setTitleColor(@NonNull String color) {
         try {
             this.TITLECLOR = Color.parseColor(color);
-        }catch (IllegalArgumentException e){}
+        } catch (IllegalArgumentException e) {
+        }
     }
 
     public void setDetailColor(@NonNull String color) {
         try {
             this.DETAILCOLOR = Color.parseColor(color);
-        }catch (IllegalArgumentException e){}
+        } catch (IllegalArgumentException e) {
+        }
     }
 
     public void setTitleTextSize(float size) {

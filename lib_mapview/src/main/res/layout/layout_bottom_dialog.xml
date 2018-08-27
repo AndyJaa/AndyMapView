@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="115dp"
+    android:gravity="center"
+    android:background="@drawable/shape_corner2">
+
+    <TextView
+        android:gravity="center_vertical"
+        android:textSize="16sp"
+        android:padding="3dp"
+        android:text="fadfa"
+        android:id="@+id/tv_showTitle"
+        android:layout_width="match_parent"
+        android:layout_height="40dp" />
+
+    <View
+        android:layout_below="@+id/tv_showTitle"
+        android:id="@+id/viewLine"
+        android:background="#EC8319"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+
+    <TextView
+        android:paddingLeft="7dp"
+        android:paddingRight="7dp"
+        android:textSize="17sp"
+        android:layout_below="@+id/viewLine"
+        android:text="fassdsfad"
+        android:id="@+id/tv_showContent"
+        android:layout_width="match_parent"
+        android:layout_height="102dp" />
+
+
+    <TextView
+        android:layout_below="@+id/tv_showContent"
+        android:gravity="center"
+        android:id="@+id/btn_cancel"
+        android:textColor="#ffffff"
+        android:textSize="16sp"
+        android:text="关闭"
+        android:layout_width="match_parent"
+        android:background="#EC8319"
+        android:layout_height="35dp" />
+
+</RelativeLayout>
