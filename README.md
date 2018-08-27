@@ -24,7 +24,8 @@ allprojects {
 Step 2. Add the dependency:
 dependencies {
 	       // compile 'com.github.AndyJaa:AndyMapView:v1.0.0'
-	       compile 'com.github.AndyJaa:AndyMapView:v1.0.1'
+	       //compile 'com.github.AndyJaa:AndyMapView:v1.0.1'
+	       compile 'com.github.AndyJaa:AndyMapView:v1.0.2'
 	}
 ```
 
@@ -52,7 +53,10 @@ DEMO
                 list.add(data1);
                 list.add(data2);
                 list.add(data3);
-                markLayer = new MarkLayer(mapView, list);
+                 //默认样式
+//                markLayer = new MarkLayer(MainActivity.this,mapView, list,true);
+                //dialog样式弹出
+                markLayer = new MarkLayer(MainActivity.this,mapView, list,false);
                 markLayer.setDetailColor(Color.GREEN);
                 markLayer.setTitleColor("#aabbccdd");
                 markLayer.setMarkIsClickListener(new MarkLayer.MarkIsClickListener() {
