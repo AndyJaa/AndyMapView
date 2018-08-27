@@ -81,3 +81,4 @@ DEMO
 SCREENSHOT
 ------------------
 <img src="https://github.com/AndyJaa/AndyMapView/blob/master/demo.png" width="350" height="550"/>
+<img src="https://github.com/AndyJaa/AndyMapView/blob/master/demo1.png" width="350" height="550"/>
