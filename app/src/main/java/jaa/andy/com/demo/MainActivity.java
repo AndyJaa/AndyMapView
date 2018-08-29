@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity implements AndyView.OnClickA
                 //默认样式
 //                markLayer = new MarkLayer(MainActivity.this,mapView, list,true);
                 //dialog样式弹出
-                markLayer = new MarkLayer(MainActivity.this,mapView, list,false);
+                markLayer = new MarkLayer(MainActivity.this,mapView, list,false,false);
 //                markLayer.setDetailColor(Color.GREEN);
 //                markLayer.setTitleColor("#aabbccdd");
                 markLayer.setMarkIsClickListener(new MarkLayer.MarkIsClickListener() {

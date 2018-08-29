@@ -60,12 +60,14 @@ public class MarkLayer extends MapBaseLayer {
     private Paint paint;
     private Context mContext;
     private boolean isDefault = true;
+    private boolean isShowPointName = true;
 
 
-    public MarkLayer(Context context, MapView mapView, List<PointData> pointDatas, boolean isDefault) {
+    public MarkLayer(Context context, MapView mapView, List<PointData> pointDatas, boolean isShowPointName, boolean isDefault) {
         super(mapView);
         this.pointDatas = pointDatas;
         this.mContext = context;
+        this.isShowPointName = isShowPointName;
         this.isDefault = isDefault;
         initLayer();
     }
@@ -123,12 +125,14 @@ public class MarkLayer extends MapBaseLayer {
 
                     paint.setColor(Color.BLACK);
                     paint.setTextSize(radiusMark);
-                    //mark name
                     final String markName = pointDatas.get(i).getMarkTitle();
                     final String markContent = pointDatas.get(i).getMarkContent();
-                    if (mapView.getCurrentZoom() > 1.0 && pointDatas != null) {
-                        canvas.drawText(markName, goal[0] - radiusMark, goal[1] -
-                                radiusMark / 2, paint);
+                    //mark name
+                    if (isShowPointName) {
+                        if (mapView.getCurrentZoom() > 1.0 && pointDatas != null) {
+                            canvas.drawText(markName, goal[0] - radiusMark, goal[1] -
+                                    radiusMark / 2, paint);
+                        }
                     }
                     //mark ico
 //                    paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.LIGHTEN));
